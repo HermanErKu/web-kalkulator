@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+
+<head>
+    <adress>Cum</adress>
+</head>
+<body>
+
+    <div id="fakultet">
+        <form>
+            <input name="tall" placeholder="Tall" type="number">
+            <button>Regn ut fakultet</button>
+        </form>
+        <p>
+            Resultatet er: <span class="resultat"></span>
+        </p>
+    </div>
+
+    <script type="module">
+
+        import { fakultet } from './fakultet.js'
+        import { fizzBuzz } from './fizzbuzz.js'
+        import { fibonacci } from './fibonacci.js'
+
+        function regnUt(evt) {
+            evt.preventDefault()
+
+            const input = document.querySelector('#fakultet input')
+            const output = document.querySelector('#fakultet .resultat')
+
+            const tall = parseInt(input.value)
+
+            output.textContent = fakultet(tall)
+        }
+
+        document.querySelector('#fakultet button')
+            .addEventListener('click', e => regnUt(e))
+
+        function regnUtFibonacci(evt) {
+            evt.preventDefault()
+
+
+            const input = document.querySelector('#fibonacci input')
+            const output = document.querySelector('#fibonacci .resultat')
+
+            const tall = parseInt(input.value)
+
+            output.textContent = fibonacci(tall)
+        }
+
+
+        document.querySelector('#fibonacci button')
+            .addEventListener('click', e => regnUtFibonacci(e))
+
+
+        function regnUtFB(evt) {
+            evt.preventDefault()
+            const input = document.querySelector('#fizzBuzz input')
+            const output = document.querySelector('#fizzBuzz .resultat')
+
+            const tall = parseInt(input.value)
+
+            output.textContent = fizzBuzz(tall)
+        }
+        document.querySelector('#fizzBuzz button')
+            .addEventListener('click', e => regnUtFB(e))
+
+    </script>
+
+    <div id="fizzBuzz">
+        <form>
+            <input name="tall" placeholder="Tall" type="number">
+            <button>Regn ut fizzBuzz</button>
+        </form>
+        <p>
+            Resultatet er: <span class="resultat"></span>
+        </p>
+    </div>
+
+    <div id="fibonacci">
+        <form>
+            <input name="tall" placeholder="Tall" type="number">
+            <button>Regn ut fibonacci</button>
+        </form>
+        <p>
+            Resultatet er: <span class="resultat"></span>
+        </p>
+    </div>
+
+</body>
+
+</html>
